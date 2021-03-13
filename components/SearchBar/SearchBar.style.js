@@ -4,6 +4,9 @@ export const Form = styled.form`
   display: flex;
   width: 100%;
   color: ${(p) => p.theme.colorText};
+  /* position: sticky; */
+  top: 100px;
+  /* z-index: 12; */
 `;
 
 const InputContainer = styled.div`

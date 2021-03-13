@@ -10,9 +10,8 @@ import {
 import { ThemeContext } from "../../contexts/themeContext";
 import IconSun from "../../public/assets/desktop/icon-sun.svg";
 import IconMoon from "../../public/assets/desktop/icon-moon.svg";
-import SearchBar from "../SearchBar/SearchBar.comp";
 
-export default function Header() {
+export default function Header({ children }) {
   const { theme, toggleTheme, setTheme } = useContext(ThemeContext);
   return (
     <HeaderContainer>
@@ -27,9 +26,7 @@ export default function Header() {
           <IconMoon />
         </SwitchContainer>
       </Top>
-      <Bottom>
-        <SearchBar />
-      </Bottom>
+      <Bottom>{children}</Bottom>
     </HeaderContainer>
   );
 }

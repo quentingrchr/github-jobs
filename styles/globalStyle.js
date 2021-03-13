@@ -7,6 +7,14 @@ html{
 body{
   background-color: ${(p) => p.theme.colorBg};
 }
+main{
+  padding-top: 20rem;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
 
 
 *{

@@ -856,7 +856,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.8.4":
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.8.4":
   version "7.13.10"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
   integrity sha512-4QPkjJq6Ns3V/RgpEahRk+AGfL0eO6RHHtTWoNNr5mO49G6B5+X6d6THgWEAvTrznU5xYpbAlVKRYcsCgh/Akw==
@@ -1165,6 +1165,13 @@ ast-types@0.13.2:
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.13.2.tgz#df39b677a911a83f3a049644fb74fdded23cea48"
   integrity sha512-uWMHxJxtfj/1oZClOxDEV1sQ1HCDkA4MG8Gr69KKeBjEVH0R84WlejZ0y2DcwyBlpAEMltmVYkVgqfLFb2oyiA==
+
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
 
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
@@ -1868,6 +1875,11 @@ find-up@^4.0.0:
   dependencies:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
+
+follow-redirects@^1.10.0:
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"
+  integrity sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
 
 fsevents@~2.3.1:
   version "2.3.2"
@@ -2599,6 +2611,13 @@ pnp-webpack-plugin@1.6.4:
   integrity sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
   dependencies:
     ts-pnp "^1.1.6"
+
+polished@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-4.1.1.tgz#40442cc973348e466f2918cdf647531bb6c29bfb"
+  integrity sha512-4MZTrfPMPRLD7ac8b+2JZxei58zw6N1hFkdBDERif5Tlj19y3vPoPusrLG+mJIlPTGnUlKw3+yWz0BazvMx1vg==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 postcss-value-parser@^4.0.2:
   version "4.1.0"

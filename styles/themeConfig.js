@@ -5,17 +5,17 @@ const baseTheme = {
 export const lightTheme = {
   ...baseTheme,
   colorText: "#000000",
-  colorTextLight: "#FFFFFF",
-  colorBgLight: "#FFFFFF",
+  colorTextLight: "#FEFEFE",
+  colorBgLight: "#FEFEFE",
   colorBg: "#F5F6F8",
   colorGrey: "#E8E8EA",
 };
 
 export const darkTheme = {
   ...baseTheme,
-  colorText: "#FFFFFF",
-  colorTextLight: "#131112",
+  colorText: "#FEFEFE",
+  colorTextLight: "#202020",
   colorBgLight: "#323232",
-  colorBg: "#131112",
+  colorBg: "#202020",
   colorGrey: "#282828",
 };

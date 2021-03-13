@@ -11,6 +11,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   flex-direction: column;
   position: fixed;
+  z-index: 10;
   h1 {
     font-size: 2rem;
   }
@@ -32,6 +33,7 @@ export const Bottom = styled.div`
   margin: 0 10vw;
   transform: translateY(50%);
   border-radius: 0.5rem;
+  position: sticky;
 `;
 
 export const SwitchContainer = styled.div`
