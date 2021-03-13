@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 html{
   font-size: 10px;
@@ -6,9 +6,10 @@ html{
 
 body{
   background-color: ${(p) => p.theme.colorBg};
+  font-family: sofia-pro-soft, sans-serif;
 }
 main{
-  padding-top: 20rem;
+  padding-top: 8rem;
 }
 
 a{

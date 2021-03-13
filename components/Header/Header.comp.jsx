@@ -10,13 +10,19 @@ import {
 import { ThemeContext } from "../../contexts/themeContext";
 import IconSun from "../../public/assets/desktop/icon-sun.svg";
 import IconMoon from "../../public/assets/desktop/icon-moon.svg";
+import Link from "next/link";
 
 export default function Header({ children }) {
   const { theme, toggleTheme, setTheme } = useContext(ThemeContext);
   return (
     <HeaderContainer>
       <Top>
-        <h1>devjobs</h1>
+        <Link href="/">
+          <a>
+            <h1>devjobs</h1>
+          </a>
+        </Link>
+
         <SwitchContainer>
           <IconSun />
           <SwitchBtn
@@ -26,7 +32,6 @@ export default function Header({ children }) {
           <IconMoon />
         </SwitchContainer>
       </Top>
-      <Bottom>{children}</Bottom>
     </HeaderContainer>
   );
 }

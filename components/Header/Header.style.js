@@ -3,17 +3,18 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   width: 100%;
   height: auto;
-  background: url(./assets/desktop/bg-pattern-header.svg);
+  background: url("/assets/desktop/bg-pattern-header.svg");
   background-position: center;
   background-size: cover;
   border-bottom-left-radius: 8rem;
   color: ${(p) => p.theme.colorTextLight};
   display: flex;
   flex-direction: column;
-  position: fixed;
+  padding-bottom: 4rem;
+  /* position: fixed; */
   z-index: 10;
   h1 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 `;
 

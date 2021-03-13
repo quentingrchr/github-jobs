@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+
+import { useRouter } from "next/router";
 
 import Button from "../Button/Button.comp";
 import {
@@ -9,25 +11,63 @@ import {
   OthersContainer,
   CustomCheckbox,
 } from "./SearchBar.style";
+import { getSearchUrlFromParams } from "../../utils";
 
 import SearchIcon from "../../public/assets/desktop/icon-search.svg";
 import LocationIcon from "../../public/assets/desktop/icon-location.svg";
 
-export default function SearchBar() {
+export default function SearchBar({ filters }) {
+  const router = useRouter();
+  const initialFilters = { ...filters };
   const [values, setValues] = useState({
-    filter: "",
-    location: "",
+    search: filters?.search || "",
+    location: filters?.location || "",
   });
   const [fullTime, setFullTime] = useState(false);
+  const [formHeight, setFormHeight] = useState(null);
+  const [formDistanceTop, setFormDistanceTop] = useState(null);
+
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    let scrollListener;
+    if (formRef.current) {
+      scrollListener = () => {
+        setFormDistanceTop(
+          formRef.current.getBoundingClientRect().top,
+        );
+      };
+      setFormHeight(formRef.current.offsetHeight);
+      window.addEventListener("scroll", scrollListener);
+    }
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, [formRef]);
 
   const makeFocus = (e) => {
-    if (e.target.children[1]) {
-      e.target.children[1].focus();
+    const target = e.target;
+
+    for (let element of target.children) {
+      if (element.tagName === "INPUT") {
+        element.focus();
+        break;
+      }
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("submit");
+    const params = {
+      search: values.search,
+      location: values.location,
+      full_time: fullTime,
+    };
+
+    const url = getSearchUrlFromParams(params);
+
+    router.push(url);
   };
 
   const handleChange = (e) => {
@@ -42,24 +82,30 @@ export default function SearchBar() {
   const handleCheck = () => {
     setFullTime((state) => !state);
   };
+
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form
+      fullWidth={formDistanceTop !== null && formDistanceTop <= 0}
+      ref={formRef}
+      height={formHeight}
+      onSubmit={handleSubmit}
+    >
       <InputTxtContainerSearch onClick={makeFocus}>
         <SearchIcon />
         <input
           onChange={handleChange}
           placeholder="Filter by title, companies, expertise"
           type="text"
-          name="filter"
-          id="filter"
-          value={values.filter}
+          name="search"
+          id="search"
+          value={values.search}
         />
       </InputTxtContainerSearch>
       <InputTxtContainerLocation onClick={makeFocus}>
         <LocationIcon />
         <input
           onChange={handleChange}
-          placeholder="Filter by location"
+          placeholder="search by location"
           type="text"
           name="location"
           id="location"
@@ -67,7 +113,7 @@ export default function SearchBar() {
         />
       </InputTxtContainerLocation>
       <OthersContainer>
-        <InputCheckContainer>
+        <InputCheckContainer onClick={makeFocus}>
           <input
             onChange={handleCheck}
             type="checkbox"
@@ -78,7 +124,7 @@ export default function SearchBar() {
           <CustomCheckbox onClick={handleCheck} checked={fullTime} />
           <label htmlFor="fullTime">Full Time Only</label>
         </InputCheckContainer>
-        <Button type="submit" text="Search" />
+        <Button disabled={false} type="submit" text="Search" />
       </OthersContainer>
     </Form>
   );

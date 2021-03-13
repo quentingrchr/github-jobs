@@ -2,11 +2,18 @@ import styled from "styled-components";
 
 export const Form = styled.form`
   display: flex;
-  width: 100%;
+  width: ${(p) => (p.fullWidth ? "100%" : "80%")};
   color: ${(p) => p.theme.colorText};
-  /* position: sticky; */
-  top: 100px;
-  /* z-index: 12; */
+  background-color: ${(p) => p.theme.colorBgLight};
+  margin: auto;
+  transform: translateY(-50%);
+  transition: width 0.3s ease, box-shadow 0.3s ease;
+
+  position: sticky;
+  top: ${(p) => Math.floor(p.height / 2)}px;
+  z-index: 12;
+  box-shadow: 0px 2px 4px
+    rgba(0, 0, 0, ${(p) => (p.fullWidth ? "0.25" : "0")});
 `;
 
 const InputContainer = styled.div`
@@ -15,6 +22,11 @@ const InputContainer = styled.div`
   input {
     background-color: ${(p) => p.theme.colorBgLight};
     color: ${(p) => p.theme.colorText};
+    width: 100%;
+    border-bottom: 2px solid transparent;
+    &:focus {
+      border-bottom: 2px solid ${(p) => p.theme.colorPrimary};
+    }
   }
 `;
 
@@ -30,6 +42,7 @@ const InputTxtContainer = styled(InputContainer)`
   }
   svg {
     margin-right: 1rem;
+    overflow: visible;
   }
 `;
 export const InputTxtContainerSearch = styled(InputTxtContainer)`
