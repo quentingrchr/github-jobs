@@ -124,7 +124,7 @@ export default function SearchBar({ filters }) {
           <CustomCheckbox onClick={handleCheck} checked={fullTime} />
           <label htmlFor="fullTime">Full Time Only</label>
         </InputCheckContainer>
-        <Button disabled={false} type="submit" text="Search" />
+        <Button type="submit" text="Search" />
       </OthersContainer>
     </Form>
   );

@@ -84,9 +84,9 @@ export const MainHeaderLeft = styled.div`
     font-weight: 600;
     margin-bottom: 1.4rem;
   }
-  p {
+  a {
     font-size: 1.4rem;
-
+    cursor: pointer;
     color: ${(p) => p.theme.colorPrimary};
   }
 `;
@@ -140,6 +140,9 @@ export const MainFooter = styled.div`
   }
   a {
     text-decoration: underline;
+  }
+  p {
+    font-size: 1.6rem;
   }
 `;
 

@@ -15,7 +15,7 @@ export const darkTheme = {
   ...baseTheme,
   colorText: "#FEFEFE",
   colorTextLight: "#202020",
-  colorBgLight: "#323232",
-  colorBg: "#202020",
+  colorBgLight: "#18202D",
+  colorBg: "#131722",
   colorGrey: "#282828",
 };

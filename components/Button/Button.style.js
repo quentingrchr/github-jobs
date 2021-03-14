@@ -13,6 +13,19 @@ export const Btn = styled.button`
     p.disabled ? p.theme.colorPrimary : p.theme.colorBgLight};
   opacity: ${(p) => (p.disabled ? 0.4 : 1)};
   cursor: ${(p) => (p.disabled ? "not-allowed" : "pointer")};
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  &:active {
+    transform: translateY(0px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
+  }
+  &:focus {
+    outline: darkviolet;
 `;
 
 export const A = styled.a`
@@ -26,4 +39,17 @@ export const A = styled.a`
   color: ${(p) => p.theme.colorPrimary};
   font-weight: 500;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  &:active {
+    transform: translateY(0px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
+  }
+  &:focus {
+    outline: darkviolet;
+  }
 `;

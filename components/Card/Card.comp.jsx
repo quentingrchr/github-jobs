@@ -18,7 +18,6 @@ export default function Card({ item }) {
     type,
     location,
   } = item;
-  const isFullTime = type === "Full Time";
   const timeAgo = timeSince(new Date(created_at));
 
   return (

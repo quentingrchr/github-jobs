@@ -41,3 +41,17 @@ export const getSearchUrlFromParams = ({
   }
   return url;
 };
+
+export const extractEmails = (text) => {
+  return text.match(
+    /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi,
+  );
+};
+export const extractHrefs = (text) => {
+  return text.replace(
+    /[^<]*(<a href="([^"]+)">([^<]+)<\/a>)/g,
+    function () {
+      matches.push(Array.prototype.slice.call(arguments, 1, 4));
+    },
+  );
+};
